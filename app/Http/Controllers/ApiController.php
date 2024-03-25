@@ -5,9 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\PlayerInfo;
+use OpenApi\Annotations as OA;
 
+/**
+ * @OA\Info(
+ *   title="My API",
+ *   version="1.0.0"
+ * )     
+ */
 class ApiController extends Controller
 {
+
+    /**
+     * @OA\Get(
+     *     path="/player/{id}",
+     *     summary="Get a specific player",
+     *     tags={"PlayerInfo"},
+     *     @OA\Response(response=200, description="Successful operation"),
+     *     @OA\Response(response=400, description="Invalid request")
+     * )
+     */        
     public function getPlayer($id)
     {
         Log::info("Ehllo");

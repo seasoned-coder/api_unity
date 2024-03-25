@@ -1,3 +1,52 @@
+# API For Unity 
+
+This project is a learning exercise to see if a database can be wrapped in an API and then used in Unity. (It can!)
+
+You'll need a few things setup to use this project.  So before any further explanaition, do this lot!
+
+1. Set up WSL: https://learn.microsoft.com/en-us/windows/wsl/install   (Ubuntu will do!)
+
+2. Setup PHP in WSL:
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+(RESTART YOUR TERMINAL!!!)
+nvm install --lts
+ 
+sudo apt install php-xml
+sudo apt install php-curl
+sudo apt install php-pgsql
+```
+
+4. *SKIP:* This was done to create this Laravel project, but you won't need to:
+```
+composer create-project laravel/laravel:9.* fps_player_api
+```
+
+5. Now make sure all the library files are up to date:
+```
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+npm install
+npm run dev
+```
+
+6. Now setup your database:
+```
+./scripts/local-deploy.sh 
+```
+
+7. Now start up Laravel:
+```
+php artisan serve
+```
+
+8. Test it. Hit http://127.0.0.1:8000/api/player/1 and enjoy the json!
+
+Enjoy!
+
+
+And now some words from our sponsor...
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

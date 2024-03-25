@@ -1,0 +1,26 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/player/{id}": {
+            "get": {
+                "tags": [
+                    "PlayerInfo"
+                ],
+                "summary": "Get a specific player",
+                "operationId": "4baf9fa800238381f0c21658631bdbec",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        }
+    }
+}
