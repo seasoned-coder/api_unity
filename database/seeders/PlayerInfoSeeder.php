@@ -16,6 +16,6 @@ class PlayerInfoSeeder extends Seeder
         $playerInfo = PlayerInfo::create([
             "name"=> 'test player',
             "punPlayerId"=> 'abc123aaa',
-            "goldCoins"=> 3]);
+            "goldCoins"=> 4]);
     }
 }
