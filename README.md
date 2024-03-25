@@ -31,7 +31,7 @@ npm run dev
 
 6. Now setup your database:
 ```
-./scripts/local-deploy.sh 
+./local-deploy.sh 
 ```
 
 7. Now start up Laravel:
