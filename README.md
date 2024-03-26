@@ -41,8 +41,11 @@ php artisan serve
 
 8. Test it. Hit http://127.0.0.1:8000/api/player/1 and enjoy the json!
 
+9. See the swagger docs here http://127.0.0.1:8000/api/documentation
+
 Enjoy!
 
+The Swagger how to was from here: https://github.com/zircote/swagger-php?tab=readme-ov-file 
 
 Oh - if you want to get this running in Render, defo check this link out: https://github.com/render-examples/php-laravel-docker/tree/master
 Needs to be in Render really to be useful in Unity.

@@ -7,24 +7,40 @@ use Illuminate\Http\Request;
 use App\Models\PlayerInfo;
 use OpenApi\Annotations as OA;
 
-/**
- * @OA\Info(
- *   title="My API",
- *   version="1.0.0"
- * )     
- */
 class ApiController extends Controller
-{
-
+{     
     /**
      * @OA\Get(
-     *     path="/player/{id}",
+     *     path="/api/player/{id}",
      *     summary="Get a specific player",
+     *     description="Returns a single player",
+     *     operationId="getPlayer",
      *     tags={"PlayerInfo"},
-     *     @OA\Response(response=200, description="Successful operation"),
-     *     @OA\Response(response=400, description="Invalid request")
+     *     @OA\Parameter(
+     *         description="ID of player to return",
+     *         in="path",
+     *         name="id",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         @OA\JsonContent(ref="#/components/schemas/PlayerInfo")
+     *     ),
+     *     @OA\Response(
+     *         response="400",
+     *         description="Invalid ID supplied"
+     *     ),
+     *     @OA\Response(
+     *         response="404",
+     *         description="Player not found"
+     *     )
      * )
-     */        
+     */    
     public function getPlayer($id)
     {
         Log::info("Ehllo");

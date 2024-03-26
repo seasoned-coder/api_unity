@@ -1,26 +1,87 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "My API",
-        "version": "1.0.0"
+        "title": "Player API",
+        "description": "This is an api for getting player info for a game.",
+        "version": "0.1"
     },
     "paths": {
-        "/player/{id}": {
+        "/api/player/{id}": {
             "get": {
                 "tags": [
                     "PlayerInfo"
                 ],
                 "summary": "Get a specific player",
-                "operationId": "4baf9fa800238381f0c21658631bdbec",
+                "description": "Returns a single player",
+                "operationId": "getPlayer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of player to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlayerInfo"
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Invalid request"
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Player not found"
                     }
                 }
             }
         }
+    },
+    "components": {
+        "schemas": {
+            "PlayerInfo": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "punPlayerId": {
+                        "description": "The PUN player ID.",
+                        "type": "string"
+                    },
+                    "goldCoins": {
+                        "description": "How many gold coins the player has.",
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "firstLoggedIn": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "lastLoggedIn": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
     }
 }
